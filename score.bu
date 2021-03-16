@@ -1,0 +1,27 @@
+\version "2.22.0"
+
+bassMusic = \relative c {
+  \instrumentName = "Bass"
+  \clef bass
+  \key c \major
+  \time 3/3
+
+  { d }
+}
+
+\score {
+  \override Score.BarNumber.break-visibility = ##(#t #t #t)
+
+  \new Staff \with {
+    instrumentName = #"Bass"
+    midiInstrument = #"slap bass 1"
+  } {
+    \bassMusic
+  }
+
+  \layout { }
+
+  \midi {
+    \tempo 4 = 72
+  }
+}
